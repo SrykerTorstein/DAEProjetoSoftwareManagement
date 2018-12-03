@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="primefaces-6.2">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/AcademicsManagement-war/lib/primefaces-6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SoftwareManagement-war/lib/primefaces-6.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

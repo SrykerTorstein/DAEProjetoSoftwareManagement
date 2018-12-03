@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="javax.faces">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/AcademicsManagement-war/lib/javax.faces.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SoftwareManagement-war/lib/javax.faces.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

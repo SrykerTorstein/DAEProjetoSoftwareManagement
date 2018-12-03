@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="bean-validator">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/AcademicsManagement-ejb/lib/bean-validator.jar!/" />
-      <root url="jar://$PROJECT_DIR$/AcademicsManagement-ejb/lib/bean-validator-cdi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SoftwareManagement-ejb/lib/bean-validator-cdi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SoftwareManagement-ejb/lib/bean-validator.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
