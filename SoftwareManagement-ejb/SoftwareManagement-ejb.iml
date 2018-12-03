@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
-          <factory-entry name="NewPersistenceUnit" />
+          <factory-entry name="PersistenceUnityDatabaseProjetoDAE" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
@@ -25,6 +25,6 @@
     <orderEntry type="library" name="modelmapper-2.3.0" level="project" />
     <orderEntry type="library" name="bean-validator" level="project" />
     <orderEntry type="library" name="GlassFish 4.1.2" level="project" />
-    <orderEntry type="library" name="json-simple-3.0.2" level="project" />
+    <orderEntry type="library" name="json-simple-1.1.1" level="project" />
   </component>
 </module>
