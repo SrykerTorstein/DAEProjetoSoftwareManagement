@@ -1,7 +1,10 @@
 package web;
 
+import dtos.ConfigurationDTO;
 import dtos.CourseDTO;
 import dtos.StudentDTO;
+import ejbs.CharacteristicBean;
+import ejbs.ConfigurationBean;
 import ejbs.CourseBean;
 import ejbs.StudentBean;
 import entities.Subject;
@@ -24,6 +27,10 @@ public class AdministratorManager {
     private StudentBean studentBean;
     @EJB
     private CourseBean courseBean;
+    @EJB
+    private ConfigurationBean configurationBean;
+    @EJB
+    private CharacteristicBean characteristicBean;
     
     private static final Logger logger = Logger.getLogger("web.AdministratorManager");
     
@@ -31,10 +38,16 @@ public class AdministratorManager {
     
     private StudentDTO newStudent;
     private StudentDTO currentStudent;
-    //Problem: Admin manager not being instantiated!
+
+    private ConfigurationDTO newConfiguration;
+    private ConfigurationDTO currentConfiguration;
+
     public AdministratorManager() {
         newStudent= new StudentDTO();
         currentStudent = new StudentDTO();
+
+        newConfiguration = new ConfigurationDTO();
+        currentConfiguration = new ConfigurationDTO();
     }
 
     /////////////// STUDENTS /////////////////
@@ -60,7 +73,19 @@ public class AdministratorManager {
             logger.warning(e.getMessage());
             return null;
         } catch (Exception e) {
-            logger.warning("Unexpected error. Try again latter!");
+            logger.warning("Unexpected error. Try again later!");
+            return null;
+        }
+    }
+
+    public List<ConfigurationDTO> getAllConfigurations(){
+        try {
+            return configurationBean.getAll();
+        } catch (EJBException e) {
+            logger.warning(e.getMessage());
+            return null;
+        } catch (Exception e) {
+            logger.warning("Unexpected error. Try again later!");
             return null;
         }
     }

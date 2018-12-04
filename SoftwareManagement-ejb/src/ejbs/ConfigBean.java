@@ -1,6 +1,8 @@
 package ejbs;
 
-import dtos.StudentDTO;
+import enums.ConfigurationState;
+import org.json.simple.JSONObject;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
@@ -22,12 +24,23 @@ public class ConfigBean {
     
     @EJB
     private SubjectBean subjectBean;
+
+    @EJB
+    private CharacteristicBean characteristicBean;
+
+    @EJB
+    private ConfigurationBean configurationBean;
     
     @PostConstruct
     public void populateBD() {
 
         try {
-            
+            JSONObject obj = new JSONObject();
+            obj.put("someKey","someValue");
+            characteristicBean.create("characteristict1",obj);
+            configurationBean.create("config1","conf1 description", ConfigurationState.ACTIVE,"Java EE Developer");
+            configurationBean.addCharacteristicToConfiguration("config1","characteristict1");
+            /*
             courseBean.create(1, "EI");            
             courseBean.create(2, "IS");
             courseBean.create(3, "JDM");
@@ -41,6 +54,7 @@ public class ConfigBean {
             studentBean.create("bar", "bar", "Bar", "bar@ipleiria.pt", 1);
             
             studentBean.enrollStudentInSubject("foo", 1);
+            */
 
         } catch (Exception e) {
             System.err.println("[ERROR] @ Application bootstrap | Cause: " + e.getMessage());
