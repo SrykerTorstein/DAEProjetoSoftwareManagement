@@ -16,6 +16,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIParameter;
 import javax.faces.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -35,7 +36,7 @@ public class AdministratorManager {
     private static final Logger logger = Logger.getLogger("web.AdministratorManager");
     
     private UIComponent component;
-    
+
     private StudentDTO newStudent;
     private StudentDTO currentStudent;
 
@@ -45,7 +46,6 @@ public class AdministratorManager {
     public AdministratorManager() {
         newStudent= new StudentDTO();
         currentStudent = new StudentDTO();
-
         newConfiguration = new ConfigurationDTO();
         currentConfiguration = new ConfigurationDTO();
     }
@@ -78,18 +78,6 @@ public class AdministratorManager {
         }
     }
 
-    public List<ConfigurationDTO> getAllConfigurations(){
-        try {
-            return configurationBean.getAll();
-        } catch (EJBException e) {
-            logger.warning(e.getMessage());
-            return null;
-        } catch (Exception e) {
-            logger.warning("Unexpected error. Try again later!");
-            return null;
-        }
-    }
-    
     public List<Subject> getSubjectsOfStudent() {
         return studentBean.getSubjectsOfStudent(currentStudent.getUsername());
     }
@@ -110,6 +98,52 @@ public class AdministratorManager {
             UIParameter param = (UIParameter) event.getComponent().findComponent("deleteStudentId");
             String id = param.getValue().toString();
             studentBean.remove(id);
+        } catch (Exception e) {
+            logger.warning(e.getMessage());
+        }
+    }
+
+    public String createConfiguration() {
+        try {
+            configurationBean.create(newConfiguration);
+            newConfiguration.clear();
+        } catch (EJBException e) {
+            FacesExceptionHandler.handleException(e, e.getMessage(), component, logger);
+            return "admin_configurations_create";
+        } catch (Exception e) {
+            logger.warning("Unexpected error. Try again latter!");
+            return "admin_configurations_create";
+        }
+        return "index?faces-redirect=true";
+    }
+
+    public List<ConfigurationDTO> getAllConfigurations(){
+        try {
+            return configurationBean.getAll();
+        } catch (EJBException e) {
+            logger.warning(e.getMessage());
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public String updateConfiguration(){
+        try {
+            configurationBean.update(currentConfiguration);
+            currentConfiguration.clear();
+            return "index?faces-redirect=true";
+        } catch (Exception e) {
+            logger.warning(e.getMessage());
+        }
+        return "admin_configurations_update";
+    }
+
+    public void removeConfiguration(ActionEvent event){
+        try {
+            UIParameter param = (UIParameter) event.getComponent().findComponent("deleteConfigurationId");
+            Integer id = (Integer) param.getValue();
+            configurationBean.remove(id);
         } catch (Exception e) {
             logger.warning(e.getMessage());
         }

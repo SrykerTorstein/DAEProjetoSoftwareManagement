@@ -1,18 +1,17 @@
 package entities;
 
 import enums.ConfigurationState;
+
+import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
 @Entity
 @Table(name = "CONFIGURATIONS")
 @NamedQueries(value = {
-        @NamedQuery(name = "getAllConfigurations",
-                query = "SELECT c FROM Configuration c ORDER BY c.name"),
-
+        @NamedQuery(name = "getAllConfigurations", query = "SELECT c FROM Configuration c ORDER BY c.name"),
         @NamedQuery(name = "getCharacteristicsByConfiguration",
                 query = "SELECT c.characteristics FROM Configuration c WHERE c.name = :configurationName")
 })

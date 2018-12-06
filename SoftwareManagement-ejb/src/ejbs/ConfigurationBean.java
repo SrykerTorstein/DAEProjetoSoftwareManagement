@@ -1,6 +1,5 @@
 package ejbs;
 
-import com.sun.istack.internal.NotNull;
 import dtos.ConfigurationDTO;
 import entities.Characteristic;
 import entities.Configuration;
@@ -9,12 +8,13 @@ import enums.ConfigurationState;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityNotFoundException;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Stateless
 public class ConfigurationBean extends BaseBean<Configuration, ConfigurationDTO> {
 
-    public ConfigurationDTO create(String configurationName,String description,ConfigurationState state,String softwareName) {
+    public ConfigurationDTO create(String configurationName, String description, ConfigurationState state, String softwareName) {
         return create(new ConfigurationDTO(configurationName,description,state,softwareName,getCharacteristicsOfConfiguration(configurationName)));
     }
 
