@@ -37,10 +37,11 @@ public class ConfigBean {
         try {
             JSONObject obj = new JSONObject();
             obj.put("someKey","someValue");
-            characteristicBean.create("characteristict1",obj);
+            String jsonString = obj.toJSONString();
+            characteristicBean.create("characteristict1",jsonString);
             configurationBean.create("config1","conf1 description", ConfigurationState.ACTIVE,"Java EE Developer");
             configurationBean.addCharacteristicToConfiguration("config1","characteristict1");
-            /*
+/*
             courseBean.create(1, "EI");            
             courseBean.create(2, "IS");
             courseBean.create(3, "JDM");

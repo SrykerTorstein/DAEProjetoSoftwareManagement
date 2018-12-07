@@ -1,8 +1,5 @@
 package web;
 
-import java.io.Serializable;
-import java.util.Arrays;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
@@ -10,6 +7,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.logging.Logger;
 
 @FacesValidator("usernameValidator")
 public class UsernameValidator implements Validator, Serializable {

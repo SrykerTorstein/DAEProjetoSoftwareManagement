@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
-    <persistence-unit name="PersistenceUnityDatabaseProjetoDAE">
+    <persistence-unit name="PersistenceUnitDatabaseProjetoDAE">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <!--
         <properties>
@@ -12,8 +12,9 @@
         </properties>
         -->
         <jta-data-source>java:jboss/projeto_dae</jta-data-source>
+        <!-- A cada deploy da aplicação elimina e cria as tabelas na base de dados -->
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/> <!-- A cada deploy da aplicação elimina e cria as tabelas na base de dados -->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="javax.persistence.ddl-generation.output-mode" value="both"/>
         </properties>
     </persistence-unit>

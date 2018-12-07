@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="SoftwareManagement-war:war">
+  <artifact type="war" build-on-make="true" name="SoftwareManagement-war:war">
     <output-path>$PROJECT_DIR$/out/artifacts/SoftwareManagement_war_war</output-path>
     <root id="archive" name="SoftwareManagement-war_war.war">
       <element id="artifact" artifact-name="SoftwareManagement-war:war exploded" />

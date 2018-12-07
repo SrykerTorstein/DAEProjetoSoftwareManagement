@@ -18,15 +18,15 @@ public class Characteristic implements Serializable {
     private String name;
 
     @NotNull
-    private JSONObject jsonObject = new JSONObject();
+    private String jsonString;
 
     public Characteristic(){
 
     }
 
-    public Characteristic(String name, JSONObject jsonObject) {
+    public Characteristic(String name, String jsonString) {
         this.name = name;
-        this.jsonObject = jsonObject;
+        this.jsonString = jsonString;
     }
 
     public String getName() {
@@ -35,6 +35,18 @@ public class Characteristic implements Serializable {
 
     public void setName(String id) {
         this.name = id;
+    }
+
+    public String getJsonString() {
+        return jsonString;
+    }
+
+    public void setJsonString(String jsonString) {
+        this.jsonString = jsonString;
+    }
+
+    public void setJsonStringWithJsonObject(JSONObject jsonObject) {
+        this.jsonString = jsonObject.toJSONString();
     }
 }
 

@@ -4,6 +4,7 @@
       <root url="jar://$PROJECT_DIR$/SoftwareManagement-ejb/lib/GlassFish 4.1.2 CDI/weld-integration.jar!/" />
       <root url="jar://$PROJECT_DIR$/SoftwareManagement-ejb/lib/GlassFish 4.1.2 CDI/javax.inject.jar!/" />
       <root url="jar://$PROJECT_DIR$/SoftwareManagement-ejb/lib/GlassFish 4.1.2 CDI/weld-osgi-bundle.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SoftwareManagement-ejb/lib/GlassFish 4.1.2 CDI/weld-integration-fragment.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -9,8 +9,8 @@ import javax.ejb.Stateless;
 @Stateless
 public class CharacteristicBean extends BaseBean<Characteristic, CharacteristicDTO> {
 
-    public Characteristic create(String name, JSONObject jsonObject) {
-        Characteristic characteristic = new Characteristic(name, jsonObject);
+    public Characteristic create(String name,String jsonString) {
+        Characteristic characteristic = new Characteristic(name,jsonString);
 
         em.persist(characteristic);
 

@@ -1,5 +1,6 @@
 package web;
 
+import dtos.CharacteristicDTO;
 import dtos.ConfigurationDTO;
 import dtos.CourseDTO;
 import dtos.StudentDTO;
@@ -115,6 +116,17 @@ public class AdministratorManager {
             return "admin_configurations_create";
         }
         return "index?faces-redirect=true";
+    }
+
+    public List<CharacteristicDTO> getAllCharacteristics(){
+        try {
+            return characteristicBean.getAll();
+        } catch (EJBException e) {
+            logger.warning(e.getMessage());
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public List<ConfigurationDTO> getAllConfigurations(){

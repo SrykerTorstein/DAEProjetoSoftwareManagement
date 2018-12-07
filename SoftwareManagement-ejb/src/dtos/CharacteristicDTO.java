@@ -1,17 +1,26 @@
 package dtos;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class CharacteristicDTO implements DTO {
     private String name;
     private JSONObject jsonObject;
 
     public CharacteristicDTO() {
+
     }
 
-    public CharacteristicDTO(String name, JSONObject jsonObject) {
+    public CharacteristicDTO(String name, String jsonString) {
         this.name = name;
-        this.jsonObject = jsonObject;
+        JSONParser parser = new JSONParser();
+
+        try {
+            jsonObject = (JSONObject) parser.parse(jsonString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -32,7 +41,12 @@ public class CharacteristicDTO implements DTO {
         return jsonObject;
     }
 
-    public void setJsonObject(JSONObject jsonObject) {
-        this.jsonObject = jsonObject;
+    public void setJsonObject(String jsonString) {
+        JSONParser parser = new JSONParser();
+        try {
+            jsonObject = (JSONObject) parser.parse(jsonString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }

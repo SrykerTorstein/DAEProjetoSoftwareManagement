@@ -7,24 +7,24 @@
           <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
-          <root url="file://$MODULE_DIR$/../AcademicsManagement-war/web" relative="/" />
+          <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/../AcademicsManagement-war/src" />
-        </sourceRoots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/web/WEB-INF/classes" />
+    <output-test url="file://$MODULE_DIR$/../out/test/SoftwareManagement-war" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="primefaces-6.2" level="project" />
-    <orderEntry type="module" module-name="SoftwareManagement-ejb" />
-    <orderEntry type="library" name="GlassFish 4.1.2" level="application_server_libraries" />
-    <orderEntry type="library" name="javax.faces" level="project" />
+    <orderEntry type="library" exported="" name="primefaces-6.2" level="project" />
+    <orderEntry type="module" module-name="SoftwareManagement-ejb" exported="" />
+    <orderEntry type="library" exported="" name="GlassFish 4.1.2" level="application_server_libraries" />
+    <orderEntry type="library" exported="" name="javax.faces" level="project" />
   </component>
 </module>

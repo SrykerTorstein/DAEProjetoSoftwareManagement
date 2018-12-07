@@ -19,7 +19,23 @@
             <p:column headerText = "Name">
                 <h:outputText value="#{configuration.name}" />
             </p:column>
+        </p:dataTable>
 
+        <h3>CHARACTERISTICS</h3>
+        <p:dataTable
+                var="characteristic"
+                summary="List of all characteristics"
+                value="#{administratorManager.allCharacteristics}"
+                rules="all"
+                cellpadding="5">
+
+            <p:column headerText = "Name">
+                <h:outputText value="#{characteristic.name}" />
+            </p:column>
+
+            <p:column headerText = "jsonObject">
+                <h:outputText value="#{characteristic.jsonObject}" />
+            </p:column>
         </p:dataTable>
     </h:body>
 </html>

@@ -1,6 +1,8 @@
 package ejbs;
 
+import dtos.CharacteristicDTO;
 import dtos.DTO;
+import entities.Characteristic;
 import exceptions.EntityDoesNotExistException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -29,6 +31,10 @@ public abstract class BaseBean<E extends Serializable, D extends DTO> {
     public BaseBean() {
         mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+        mapper.createTypeMap(Characteristic.class, CharacteristicDTO.class)
+                .addMapping(Characteristic::getJsonString, CharacteristicDTO::setJsonObject);
+        mapper.createTypeMap(CharacteristicDTO.class,Characteristic.class)
+                .addMapping(CharacteristicDTO::getJsonObject,Characteristic::setJsonStringWithJsonObject);
     }
     
     public D create(D dto) {
