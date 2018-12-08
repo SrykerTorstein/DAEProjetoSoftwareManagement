@@ -44,11 +44,18 @@ public class AdministratorManager {
     private ConfigurationDTO newConfiguration;
     private ConfigurationDTO currentConfiguration;
 
+    private CharacteristicDTO newCharacteristic;
+    private CharacteristicDTO currentCharacteristic;
+
     public AdministratorManager() {
         newStudent= new StudentDTO();
         currentStudent = new StudentDTO();
+
         newConfiguration = new ConfigurationDTO();
         currentConfiguration = new ConfigurationDTO();
+
+        newCharacteristic = new CharacteristicDTO();
+        currentCharacteristic = new CharacteristicDTO();
     }
 
     /////////////// STUDENTS /////////////////
@@ -210,5 +217,37 @@ public class AdministratorManager {
 
     public void setComponent(UIComponent component) {
         this.component = component;
+    }
+
+    public ConfigurationDTO getNewConfiguration() {
+        return newConfiguration;
+    }
+
+    public void setNewConfiguration(ConfigurationDTO newConfiguration) {
+        this.newConfiguration = newConfiguration;
+    }
+
+    public ConfigurationDTO getCurrentConfiguration() {
+        return currentConfiguration;
+    }
+
+    public void setCurrentConfiguration(ConfigurationDTO currentConfiguration) {
+        this.currentConfiguration = currentConfiguration;
+    }
+
+    public CharacteristicDTO getNewCharacteristic() {
+        return newCharacteristic;
+    }
+
+    public void setNewCharacteristic(CharacteristicDTO newCharacteristic) {
+        this.newCharacteristic = newCharacteristic;
+    }
+
+    public CharacteristicDTO getCurrentCharacteristic() {
+        return currentCharacteristic;
+    }
+
+    public void setCurrentCharacteristic(CharacteristicDTO currentCharacteristic) {
+        this.currentCharacteristic = currentCharacteristic;
     }
 }

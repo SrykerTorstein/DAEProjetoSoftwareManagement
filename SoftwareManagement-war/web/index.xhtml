@@ -33,8 +33,20 @@
                 <h:outputText value="#{characteristic.name}" />
             </p:column>
 
+            <p:column headerText = "Property">
+                <h:outputText value="#{characteristic.property}" />
+            </p:column>
+<!--
             <p:column headerText = "jsonObject">
                 <h:outputText value="#{characteristic.jsonObject}" />
+            </p:column>
+-->
+            <p:column headerText="Actions">
+                <h:form>
+                    <h:commandLink value="Details" action="admin_characteristics_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentCharacteristic}" value="#{characteristic}" />
+                    </h:commandLink>
+                </h:form>
             </p:column>
         </p:dataTable>
     </h:body>

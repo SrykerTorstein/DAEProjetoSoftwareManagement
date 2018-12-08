@@ -1,5 +1,6 @@
 package ejbs;
 
+import entities.Property;
 import enums.ConfigurationState;
 import org.json.simple.JSONObject;
 
@@ -35,13 +36,36 @@ public class ConfigBean {
     public void populateBD() {
 
         try {
-            JSONObject obj = new JSONObject();
-            obj.put("someKey","someValue");
-            String jsonString = obj.toJSONString();
-            characteristicBean.create("characteristict1",jsonString);
-            configurationBean.create("config1","conf1 description", ConfigurationState.ACTIVE,"Java EE Developer");
-            configurationBean.addCharacteristicToConfiguration("config1","characteristict1");
-/*
+            JSONObject repositoryJSON = new JSONObject();
+            repositoryJSON.put("SourceCodeURL","www.git.com");
+            repositoryJSON.put("DataBaseURL","www.mysql.com");
+            repositoryJSON.put("LibrariesURL","www.maven.com");
+            characteristicBean.create("Repositories",repositoryJSON.toJSONString());
+
+            JSONObject hardwareJSON = new JSONObject();
+            hardwareJSON.put("CPU","Intel 3.5Ghz");
+            hardwareJSON.put("RAM","64Gb 1500Mhz");
+            characteristicBean.create("Hardware",hardwareJSON.toJSONString());
+
+            JSONObject license1JSON = new JSONObject();
+            license1JSON.put("Code","1337-420-360-N05C0P3");
+            license1JSON.put("ExpirationDate","15 September 2045");
+            characteristicBean.create("License 2045",license1JSON.toJSONString());
+
+            JSONObject license2JSON = new JSONObject();
+            license2JSON.put("Code","91857249526176-1524-UFMEOK");
+            license2JSON.put("ExpirationDate","25 NOV 2015");
+            license2JSON.put("Company","Sun Microsystems");
+            characteristicBean.create("License SunMicro",license2JSON.toJSONString());
+
+            configurationBean.create("javaEE2015Config","Some modern config", ConfigurationState.ACTIVE,"Java EE Developer");
+            configurationBean.create("java95","An old config", ConfigurationState.SUSPENDED,"Java EE 1997 Proto");
+            configurationBean.addCharacteristicToConfiguration("javaEE2015Config","Repositories");
+            configurationBean.addCharacteristicToConfiguration("javaEE2015Config","Hardware");
+            configurationBean.addCharacteristicToConfiguration("javaEE2015Config","License 2045");
+            configurationBean.addCharacteristicToConfiguration("java95","License SunMicro");
+
+            /*
             courseBean.create(1, "EI");            
             courseBean.create(2, "IS");
             courseBean.create(3, "JDM");
